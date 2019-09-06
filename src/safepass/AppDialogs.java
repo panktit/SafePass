@@ -79,7 +79,7 @@ public class AppDialogs {
         JOptionPane.showMessageDialog(null, 
                 progTitle 
                 + " \nVersion: " + ver
-                + " \nPublic License: WTFPL v2"
+                + " \nLicense: MIT License"
                 + " \nhttps://github.com/panktit/SafePass",
                 "About", JOptionPane.INFORMATION_MESSAGE, ic);
     }
@@ -87,7 +87,7 @@ public class AppDialogs {
 //private methods
     private static Entry manageEntry(Entry e, String title) {
         Object[] ret = InputDialog.show(new java.awt.Frame(), title,
-            new String[] {"Site", "Login", "Password", "Comment"},
+            new String[] {"Website", "Login Id", "Password", "Comment"},
             e == null? null : new String[] {e.getSite(), e.getLogin(), e.getPassword(), e.getComment()},
             new int[] {InputDialog.FIELD_NOTEMPTY, InputDialog.FIELD_NOTEMPTY, InputDialog.FIELD_PASSWORD|InputDialog.FIELD_NOTEMPTY, InputDialog.FIELD_NORMAL}
         );
