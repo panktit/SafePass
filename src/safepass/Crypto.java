@@ -61,7 +61,7 @@ public class Crypto {
         return null;
     }
     
-    //MD5 hash
+    //MD5 hash algorithm
     static public byte[] md5(char[] str) {
         byte[] p = toByteArray(str);
         byte[] ret = md5(p);
@@ -70,7 +70,6 @@ public class Crypto {
         return ret;
     }  
     
-//private
     static private final String cipher_type = "AES/CBC/PKCS5Padding";
     //AES skey, skey,iv - 16byte
     private static byte[] AES(int mode, byte[] skey, byte[] iv, byte[] data) {
@@ -99,7 +98,7 @@ public class Crypto {
         return bytes;
     }
     
-    //md5
+    //md5 hash algorithm
     static private byte[] md5(byte[] str) {
        try {
             return MessageDigest.getInstance("MD5").digest(str);

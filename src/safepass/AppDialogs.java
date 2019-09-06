@@ -84,7 +84,7 @@ public class AppDialogs {
                 "About", JOptionPane.INFORMATION_MESSAGE, ic);
     }
     
-//private methods
+    //private methods
     private static Entry manageEntry(Entry e, String title) {
         Object[] ret = InputDialog.show(new java.awt.Frame(), title,
             new String[] {"Website", "Login Id", "Password", "Comment"},

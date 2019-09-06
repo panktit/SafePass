@@ -17,15 +17,15 @@ import org.w3c.dom.Node;
 public class Entry {
     public final int id;
     static public byte[] key = null;
-    private String site;
+    private String website;
     private String login;
     private String pass;
     private String comment;
     private String date;
     
-    public Entry(final String site, final String login, final String pass, final String comment) {
+    public Entry(final String website, final String login, final String pass, final String comment) {
         id = 0;
-        this.site = site;
+        this.website = website;
         this.login = login;
         this.pass = Crypto.encode(key, pass);
         this.comment = comment;
@@ -39,8 +39,8 @@ public class Entry {
     }
     public Entry(Element node, int id) {
         this.id = id;
-        site = node.getElementsByTagName("site").item(0).getTextContent();
-        site = Crypto.decode(key, site);
+        website = node.getElementsByTagName("website").item(0).getTextContent();
+        website = Crypto.decode(key, website);
         login = node.getElementsByTagName("login").item(0).getTextContent();
         login = Crypto.decode(key, login);
         pass = node.getElementsByTagName("pass").item(0).getTextContent();
@@ -49,7 +49,7 @@ public class Entry {
         date = node.getElementsByTagName("date").item(0).getTextContent();
     }
     
-    public String getSite() {return site;}
+    public String getSite() {return website;}
     public String getLogin() {return login;}
     public String getComment() {return comment;}
     public String getDate() {return date;}
@@ -62,7 +62,7 @@ public class Entry {
     
     public Element toElement(Document doc, String name) {
         Element el = doc.createElement(name);
-        add(el, "site", Crypto.encode(key, site));
+        add(el, "website", Crypto.encode(key, website));
         add(el, "login", Crypto.encode(key, login));
         add(el, "pass", pass);
         add(el, "comment", Crypto.encode(key, comment));
@@ -72,7 +72,7 @@ public class Entry {
     
     public Element toElement(Document doc, String name, byte[] newKey) {
         Element el = doc.createElement(name);
-        add(el, "site", Crypto.encode(newKey, site));
+        add(el, "website", Crypto.encode(newKey, website));
         add(el, "login", Crypto.encode(newKey, login));
         add(el, "pass", Crypto.encode(newKey, Crypto.decode(key, pass)));
         add(el, "comment", Crypto.encode(newKey, comment));
@@ -81,15 +81,15 @@ public class Entry {
     }
     
     public Boolean like(final String str) {
-        return site.contains(str) || login.contains(str) || comment.contains(str);
+        return website.contains(str) || login.contains(str) || comment.contains(str);
     }
     
     public String[] toArray() {
-        return new String[] {site, login, comment, date};
+        return new String[] {website, login, comment, date};
     }
     
     public String name() {
-        return site + " (" + login + ")";
+        return website + " (" + login + ")";
     }
     
     public String getPassword() {

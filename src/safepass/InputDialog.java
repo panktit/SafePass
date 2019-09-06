@@ -53,7 +53,7 @@ public class InputDialog extends  java.awt.Dialog {
         return show(parent, title, labelNames, defValues, fieldMode, checkMulti, null);
     }
 
-//private methods
+    //private methods
     private static Object[] show(java.awt.Frame parent, String title, String[] labelNames, String[] defValues, int[] fieldMode, CheckFields checkMulti, CheckField checkSingle) {
         InputDialog inp = new InputDialog(parent, title, labelNames, defValues, fieldMode, checkMulti, checkSingle);
         inp.setVisible(true);
@@ -233,4 +233,5 @@ public class InputDialog extends  java.awt.Dialog {
     private final int[] fieldMode;
     private final CheckFields checkMulti;
     private final CheckField checkSingle;
+    
 }

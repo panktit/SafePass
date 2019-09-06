@@ -136,7 +136,7 @@ public class DataTable extends ArrayList<Entry> {
             transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, "yes");
             transformer.transform(new DOMSource(doc), new StreamResult(new File(fname)));
         } catch (TransformerException ex) {
-            throw new RuntimeException("Cant write to file");
+            throw new RuntimeException("Cannot write to file");
         }
     }
     
